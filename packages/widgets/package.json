@@ -25,7 +25,7 @@
     "./Specs/**/*"
   ],
   "engines": {
-    "node": ">=20.19.0"
+    "node": ">=22.0.0"
   },
   "dependencies": {
     "@cesium/engine": "^24.0.0",
@@ -33,8 +33,8 @@
   },
   "type": "module",
   "scripts": {
-    "build": "gulp build --workspace @cesium/widgets",
-    "build-ts": "gulp buildTs --workspace @cesium/widgets",
+    "build": "node init && gulp build --workspace @cesium/widgets",
+    "build-ts": "node init && gulp buildTs --workspace @cesium/widgets",
     "coverage": "gulp coverage --workspace @cesium/widgets",
     "test": "gulp test --workspace @cesium/widgets",
     "postversion": "gulp postversion --workspace @cesium/widgets"
