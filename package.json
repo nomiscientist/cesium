@@ -110,22 +110,22 @@
   },
   "scripts": {
     "prepare": "gulp prepare && husky && node scripts/isCI.js || playwright install --with-deps",
-    "start": "node server.js",
-    "start-public": "node server.js --public",
-    "build": "gulp build",
-    "build-release": "gulp buildRelease",
-    "build-watch": "gulp buildWatch",
-    "build-ts": "gulp buildTs",
-    "build-third-party": "gulp buildThirdParty",
-    "build-apps": "gulp -f gulpfile.apps.js buildApps",
-    "build-cesium-viewer": "gulp -f gulpfile.apps.js buildCesiumViewer",
-    "build-sandcastle": "gulp -f gulpfile.apps.js buildSandcastle",
+    "start": "node init && node server.js",
+    "start-public": "node init && node server.js --public",
+    "build": "node init && gulp build",
+    "build-release": "node init && gulp buildRelease",
+    "build-watch": "node init && gulp buildWatch",
+    "build-ts": "node init && gulp buildTs",
+    "build-third-party": "node init && gulp buildThirdParty",
+    "build-apps": "node init && gulp -f gulpfile.apps.js buildApps",
+    "build-cesium-viewer": "node init && gulp -f gulpfile.apps.js buildCesiumViewer",
+    "build-sandcastle": "node init && gulp -f gulpfile.apps.js buildSandcastle",
     "clean": "gulp clean",
     "cloc": "gulp cloc",
     "create-demo": "npm run create-demo --workspace=packages/sandcastle",
     "coverage": "gulp coverage",
-    "build-docs": "gulp buildDocs",
-    "build-docs-watch": "gulp buildDocsWatch",
+    "build-docs": "node init && gulp buildDocs",
+    "build-docs-watch": "node init && gulp buildDocsWatch",
     "eslint": "eslint \"./**/*.*js\" \"./**/*.*ts*\" \"./**/*.html\" --cache --quiet",
     "tsc": "gulp tsc",
     "sg-scan": "sg scan --context 3",
@@ -153,7 +153,7 @@
     "cspell": "npx cspell lint -c .vscode/cspell.json --unique --no-progress"
   },
   "engines": {
-    "node": ">=20.19.0"
+    "node": ">=22.0.0"
   },
   "workspaces": [
     "packages/engine",
